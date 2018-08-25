@@ -8,7 +8,7 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Events Manager</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
@@ -26,5 +26,53 @@
       <!-- <span>calendar</span> -->
     </mat-toolbar>
     <!-- Add Content Here -->
+
+    <!-- <p *ngFor="let date of dates$">
+      {{ date | date }}
+   
+    </p> -->
+    <div *ngIf="!!displayedColumns" class="example-container mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Name Column -->
+        <!-- <ng-container matColumnDef="date" sticky>
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.date | date }} </td>
+        </ng-container> -->
+        
+        <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index">
+          <ng-container matColumnDef="{{disCol}}" sticky *ngIf="!colIndex">
+            <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
+            <td mat-cell *matCellDef="let element">
+              <!-- element; -->
+              <!-- <mat-icon>more_vert</mat-icon> -->
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="{{disCol}}"  *ngIf="!!colIndex">
+            <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
+            <td mat-cell *matCellDef="let element">
+              <!-- element; -->
+              <!-- <mat-icon>more_vert</mat-icon> -->
+            </td>
+          </ng-container>
+          <!-- <ng-container *ngIf="index > 2 " matColumnDef="{{disCol}}">
+            <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
+            <td mat-cell *matCellDef="let element">
+            </td>
+          </ng-container> -->
+        </ng-container>
+        
+        <!-- Star Column -->
+        <!-- <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>more_vert</mat-icon>
+          </td>
+        </ng-container> -->
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
