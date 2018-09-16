@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppNavComponent } from './components/app-nav/app-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { BodyComponent } from './componets/body/body.component';
+import { BodyComponent } from './components/body/body.component';
 
 @NgModule({
   declarations: [
