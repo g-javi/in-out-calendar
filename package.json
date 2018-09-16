@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:server": "node dist/out-tsc/server/server.js",
     "build": "ng build",
     "compile": "tsc",
     "compile:watch": "tsc -w",
